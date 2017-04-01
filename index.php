@@ -4,10 +4,18 @@
   <title>Multiple File Upload with PHP</title>
 </head>
 <body>
-  <form action="" method="post" enctype="multipart/form-data">
-    <input type="file" id="file" name="files[]" multiple="multiple" accept="image/*" />
-  <input type="submit" value="Upload!" name="sub"/>
-  </form>
+ 
+  <h2>Upload Files:</h2>
+  <!-- IMPORTANT:  FORM's enctype must be "multipart/form-data" -->
+  <form method="post" action="upload.php" enctype="multipart/form-data">
+    <input type="file" name="files" id="files" multiple="" onChange="makeFileList();" accept="image/*" />
+  </form>	
+
+  <p>
+    <strong>Files You Selected:</strong>
+  </p>
+
+  <ul id="fileList"><li>No Files Selected</li></ul>
 </body>
 </html>
 <?php
