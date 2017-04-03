@@ -39,35 +39,24 @@
 </body>
 </html>
 <?php
+
+session_start();
+
+if (isset($_POST["submit"])){
+	if(count($_FILES['file']['name'])){     
     //This code uploads the files into 'uploads' directory inside the root directory
-if(isset($_POST['sub']))
-{
-        
-        $loc=$_SERVER['DOCUMENT_ROOT']."uploads/";
-        $i=sizeof($_FILES['files']['name']);
-        $err=0;
-        for($j=0;$j<$i;$j++)
-        {
-            if(move_uploaded_file($_FILES['files']['tmp_name'][$j],$loc.$_FILES['files']['name'][$j]))
-            {
-                
-            }
-            else
-            {
-                $err++;
-            }
-        }
-        if($err==0)
-        {
-?>
-            <script>alert('Done Successfully');</script>
-<?php
-        }
-        if($err>0)
-        {
-?>
-            <script>alert('There is some error in it');</script>
-<?php
-        }
-}
+    $target="uploads/";               
+    $count=0;
+
+    foreach ($_FILES['file']['name'] as $filename){
+        $temp=$target;
+        $tmp=$_FILES['file']['tmp_name'][$count];
+        $count=$count + 1;
+        $temp=$temp.basename($filename);
+        move_uploaded_file($tmp,$temp);
+        $temp='';
+        $tmp='';
+    }//foreach
+	}//countif
+}//submit
 ?>
