@@ -48,8 +48,9 @@ function makeFileList() {
 ## Moving to the server 
 
 ```PHP
+<?php
 session_start();
-
+//sort code for uploading or moving file to server
 if (isset($_POST["submit"]))
 {
   if(count($_FILES['file']['name'])) 
@@ -69,4 +70,5 @@ if (isset($_POST["submit"]))
     }
   }
 }
+?>
 ```
