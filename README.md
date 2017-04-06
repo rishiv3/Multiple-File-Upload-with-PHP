@@ -13,10 +13,12 @@ This is a simple HTML form, there won't be any styles, since we'r focusing on th
 </form>	
 
 <p>
-	<strong>Files You Selected:</strong>
+  <strong>Files You Selected:</strong>
 </p>
 
-<ul id="fileList"><li>No Files Selected</li></ul>
+<ul id="fileList">
+  <li>No Files Selected</li>
+</ul>
 ```
 
 Simply adding the multiple attribute allows for multiple files to be uploaded via one INPUT element.
@@ -50,21 +52,21 @@ session_start();
 
 if (isset($_POST["submit"]))
 {
-	if(count($_FILES['file']['name'])) 
-	{        
-        $target="uploads/";               
-        $count=0;
-        
-        foreach ($_FILES['file']['name'] as $filename) 
-        {
-            $temp=$target;
-            $tmp=$_FILES['file']['tmp_name'][$count];
-            $count=$count + 1;
-            $temp=$temp.basename($filename);
-            move_uploaded_file($tmp,$temp);
-            $temp='';
-            $tmp='';
-        }
-	}
+  if(count($_FILES['file']['name'])) 
+  {        
+  $target="uploads/";               
+  $count=0;
+
+    foreach ($_FILES['file']['name'] as $filename) 
+    {
+      $temp=$target;
+      $tmp=$_FILES['file']['tmp_name'][$count];
+      $count=$count + 1;
+      $temp=$temp.basename($filename);
+      move_uploaded_file($tmp,$temp);
+      $temp='';
+      $tmp='';
+    }
+  }
 }
 ```
