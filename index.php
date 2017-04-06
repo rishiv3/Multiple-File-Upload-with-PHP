@@ -16,7 +16,10 @@
     <strong>Files You Selected:</strong>
   </p>
 
-  <ul id="fileList"><li>No Files Selected</li></ul>
+  <!--list all the uploaded files before uploading-->
+  <ul id="fileList">
+     <li>No Files Selected</li>
+  </ul>
 
   <script>
     function makeFileList() {
