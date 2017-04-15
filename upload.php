@@ -1,4 +1,5 @@
 <?php
+// TODO -- add dir path
 // upload directory path
 $target_dir = "uploads/"; //path can be change
 $target_file = $target_dir . basename($_FILES["fileToUpload"]["name"]);
