@@ -73,4 +73,4 @@ if (isset($_POST["submit"]))
 ?>
 ```
 
-# Todo -- add more features.
+# Todo -- add more functionalities 
